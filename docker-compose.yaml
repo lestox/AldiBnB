@@ -1,21 +1,21 @@
 version: '3.1'
 
 services:
-    php:
-        build:
-            context: .
-            dockerfile: Dockerfile
+    wordpress:
+        image: wordpress
+        restart: always
         ports:
-            - '2345:80'
+            - 2345:80
+        env_file:
+            - .env
         volumes:
             - ./wordpress:/var/www/html
 
     db:
         image: 'mariadb'
         restart: always
-        environment:
-            MYSQL_DATABASE: data
-            MYSQL_ROOT_PASSWORD: password
+        env_file:
+            - .env
         volumes:
             - wordpress-data:/var/lib/mysql
             # Pour lancer un dump automatiquement au montage du conteneur
