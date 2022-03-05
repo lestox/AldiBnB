@@ -7,3 +7,4 @@ function aldibnbSetupTheme()
     add_theme_support('menus');
     register_nav_menu('header', 'Menu du header');
 }
+
