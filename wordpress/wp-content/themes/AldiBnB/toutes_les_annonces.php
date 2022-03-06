@@ -14,6 +14,7 @@ Template Name: Toutes les annonces
     $query->the_post();
     $post_id = get_the_ID();
     echo '<h5 class="card-title">' . the_title() . '</h5>';
+    echo '<a href="' . the_permalink() . '">Lien annonce';
     echo $post_id;
     echo "<br>";
     }

@@ -8,6 +8,7 @@
     <?php wp_head(); ?>
 </head>
 <body>
+<a href="/">AldiBnB</a>
 <?php wp_nav_menu ([
         'theme_location'  => 'header',
     'menu_class' => '',
