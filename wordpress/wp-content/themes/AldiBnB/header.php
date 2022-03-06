@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php wp_head(); ?>
 </head>
+
 <body>
 <a href="/">AldiBnB</a>
 <?php wp_nav_menu ([
@@ -14,3 +15,9 @@
     'menu_class' => '',
     'container' => false
 ]); ?>
+
+<?php if ( is_user_logged_in() ) { ?>
+    <a href="<?php echo wp_logout_url(); ?>">Déconnexion</a>
+<?php } else { ?>
+    <a href="/login/" title="Members Area Login" rel="home">Connexion</a>
+<?php } ?>
