@@ -5,6 +5,11 @@ Template Name: Login
 ?>
 
 <?php get_header(); ?>
+
+<?php if(is_user_logged_in()){
+    echo 'fuck';
+    wp_safe_redirect(home_url());
+};?>
     <form action="<?= home_url('wp-login.php'); ?>" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1">Email or Username</label>
