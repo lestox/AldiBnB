@@ -9,15 +9,31 @@
 </head>
 
 <body>
-<a href="/">AldiBnB</a>
-<?php wp_nav_menu ([
-        'theme_location'  => 'header',
-    'menu_class' => '',
-    'container' => false
-]); ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <?php wp_nav_menu([
+                'theme_location' => 'header',
+                'container' => false,
+                'menu_class' => "navbar-nav me-auto mb-2 mb-lg-0"
+            ]); ?>
 
-<?php if ( is_user_logged_in() ) { ?>
-    <a href="<?php echo wp_logout_url(); ?>">Déconnexion</a>
-<?php } else { ?>
-    <a href="/login/" title="Members Area Login" rel="home">Connexion</a>
-<?php } ?>
+            <div class="d-flex align-items-center">
+                <?php if ( is_user_logged_in() ) { ?>
+                <button type="button" class="btn btn-primary me-3" onclick="window.location.href = '<?php echo wp_logout_url(get_permalink()); ?>';">Déconnexion
+                    <?php } else { ?>
+                    <button type="button" class="btn btn-primary me-3" onclick="window.location.href = '<?php echo wp_login_url(get_permalink()); ?>';">Connexion
+                        <?php } ?>
+                    </button>
+            </div>
+            <?php get_search_form(); ?>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
