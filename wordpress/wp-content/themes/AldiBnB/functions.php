@@ -33,16 +33,6 @@ function add_login_check()
     }
 }
 
-add_action('wp_enqueue_scripts', 'aldibnb_bootstrap');
-function aldibnb_bootstrap() {
-    wp_enqueue_style('bootstrap_css',
-        'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
-    wp_enqueue_script('bootstrap_js',
-        'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
-        [], false, true);
-
-}
-
 add_filter('nav_menu_css_class', function ($classes) {
     $classes[] = "nav-item";
     return $classes;
@@ -52,3 +42,11 @@ add_filter('nav_menu_link_attributes', function ($attr) {
     $attr['class'] = 'nav-link';
     return $attr;
 });
+
+add_action( 'wp_enqueue_scripts', 'safely_add_stylesheet' );
+
+// load css into the website's front-end
+function mytheme_enqueue_style() {
+    wp_enqueue_style( 'style', get_stylesheet_uri());
+}
+add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_style' );
