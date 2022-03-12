@@ -1,19 +1,33 @@
 <?php get_header(); ?>
-<h1>AldiBnB</h1>
 
 <?php if (have_posts()) : ?>
+    <div>
         <?php while (have_posts()) : ?>
 
             <?php the_post(); ?>
-                <?php the_post_thumbnail_url(); ?>
+
+            <div>
+                <img src="<?php the_post_thumbnail_url(); ?>" alt="...">
+                <div>
 
                     <?php if (get_post_meta(get_the_ID(), 'wpheticSponso', true)) : ?>
+                        <div>
+                            Contenu Soponso
+                        </div>
                     <?php endif; ?>
-                    <?php the_title(); ?>
-                    <?= the_terms(get_the_ID(), 'style'); ?>
-                    <?php the_content(); ?>
-                    <?php the_permalink(); ?>
+
+                    <h5><?php the_title(); ?></h5>
+
+                    <p><small> Style: <?= the_terms(get_the_ID(), 'style'); ?></small></p>
+
+                    <p><?php the_content(); ?></p>
+                    <a href="<?php the_permalink(); ?>">Lire plus</a>
+                </div>
+            </div>
+
         <?php endwhile; ?>
+
+    </div>
 
     <?= aldibnbPaginate() ?>
 
