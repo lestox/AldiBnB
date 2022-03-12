@@ -43,6 +43,29 @@ add_filter('nav_menu_link_attributes', function ($attr) {
     return $attr;
 });
 
+function aldibnbPaginate()
+{
+    $pages = paginate_links(['type' => 'array']);
+    if (!$pages) {
+        return null;
+    }
+
+    ob_start();
+    echo '<nav aria-label="Page navigation example">';
+    echo '<ul class="pagination">';
+
+    foreach ($pages as $page) {
+        $active = strpos($page, 'current');
+        $liClass = $active ? 'page-item active' : 'page-item';
+        $page = str_replace('page-numbers', 'page-link', $page);
+
+        echo sprintf('<li class="%s">%s</li>', $liClass, $page);
+    }
+    echo '</ul></nav>';
+
+    return ob_get_clean();
+}
+
 add_action( 'wp_enqueue_scripts', 'safely_add_stylesheet' );
 
 // load css into the website's front-end
