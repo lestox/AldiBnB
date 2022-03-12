@@ -73,3 +73,26 @@ function mytheme_enqueue_style() {
     wp_enqueue_style( 'style', get_stylesheet_uri());
 }
 add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_style' );
+
+
+add_action('admin_post_aldibnb_form', function () {
+    if (!wp_verify_nonce($_POST['post_nonce_field'], 'post_nonce')) {
+        die('Nonce invalide');
+    }
+
+    // Create post object
+    $my_post = array(
+        'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
+        'post_content'  => $_POST['post_content'],
+        'post_status'   => 'publish',
+        'post_author'   => get_current_user_id()
+    );
+
+    // Insert the post into the database
+    wp_insert_post( $my_post );
+
+    // Puis je reviens sur mes pas en passant le message en URL
+    // pour vérifier que tout a bien fonctionner
+    wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
+    exit();
+});
