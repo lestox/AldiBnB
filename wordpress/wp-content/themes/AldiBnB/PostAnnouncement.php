@@ -5,7 +5,7 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php /*get_header(); */?>
 
 <form action="<?= admin_url('admin-post.php'); ?>" method="post" enctype="multipart/form-data">
     <!-- Titre de l'article -->

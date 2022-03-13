@@ -66,7 +66,7 @@ function aldibnbPaginate()
     return ob_get_clean();
 }
 
-
+add_action( 'wp_enqueue_scripts', 'aldibnb_styles' );
 function aldibnb_styles(){
     wp_enqueue_style('aldibnb-style',get_stylesheet_uri());
     wp_enqueue_style('landing', get_template_directory_uri() . '/assets/styles/front-page.css', array(), 'all');
@@ -93,18 +93,31 @@ add_action('admin_post_aldibnb_form', function () {
     wp_insert_post( $my_post );
 
     // Traitement de l'image
-    $attachment_id = media_handle_upload('image_upload', $_POST['post_id']);
+    $target_dir = "/assets/images/";
+    $file = $_FILES["image_upload"]["name"];
+    $path = pathinfo($file);
+    $filename = $path['filename'];
+    $ext = $path['extension'];
+    $temp_name = $_FILES["image_upload"]["tmp_name"];
+    $path_filename_ext = $target_dir.$filename.".".$ext;
 
-    // Ajout de l'image
-    if (is_wp_error($attachment_id)) {
-        wp_redirect($_POST['_wp_http_referer'] . '?status=error');
-    } else {
-        set_post_thumbnail($_POST['post_id'], $attachment_id);
+    if (file_exists($path_filename_ext)) {
+        echo "Sorry, file already exists.";
+    }else{
+        move_uploaded_file($temp_name,$path_filename_ext);
+        echo "Congratulations! File Uploaded Successfully.";
     }
 
-    wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
-    exit();
-});
+    //$attachment_id = media_handle_upload('image_upload', $_POST['post_id']);
 
-add_action( 'wp_enqueue_scripts', 'aldibnb_styles' );
+    // Ajout de l'image
+    //if (is_wp_error($attachment_id)) {
+       // wp_redirect($_POST['_wp_http_referer'] . '?status=error');
+    //} else {
+      //  set_post_thumbnail($_POST['post_id'], $attachment_id);
+    //}
+
+    //wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
+    //exit();
+});
 
