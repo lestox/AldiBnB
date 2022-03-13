@@ -16,6 +16,15 @@
     <label for="post_content">La description</label><br/>
     <textarea name="post_content" id="post_content"></textarea><br/>
 
+    <label for="price">Prix par nuit</label><br/>
+    <input type="number" name="price" id="price"/><br/>
+
+    <label for="city">Ville</label><br/>
+    <input type="text" name="city" id="city"/><br/>
+
+    <label for="capacity">Nombre de voyageurs</label><br/>
+    <input type="number" name="capacity" id="capacity"/><br/>
+
     <label for="image_upload">Choisis une image</label><br/>
     <input type="file" name="image_upload" id="image_upload" multiple="false"/><br/>
 

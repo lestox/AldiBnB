@@ -81,12 +81,19 @@ add_action('admin_post_aldibnb_form', function () {
         die('Nonce invalide');
     }
 
+
+
     // Create post object
     $my_post = array(
         'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
         'post_content'  => $_POST['post_content'],
         'post_status'   => 'publish',
-        'post_author'   => get_current_user_id()
+        'post_author'   => get_current_user_id(),
+        'meta_input'    => array(
+            'price' => $_POST['price'],
+            'city' => $_POST['city'],
+            'capacity' => $_POST['capacity']
+            )
     );
 
     // Insert the post into the database
