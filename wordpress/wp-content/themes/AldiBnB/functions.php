@@ -94,28 +94,13 @@ add_action('admin_post_aldibnb_form', function () {
     // Traitement de l'image
     $attachment_id = media_handle_upload('image_upload', $_POST['post_id']);
 
+    // Ajout de l'image
     if (is_wp_error($attachment_id)) {
         wp_redirect($_POST['_wp_http_referer'] . '?status=error');
     } else {
         set_post_thumbnail($_POST['post_id'], $attachment_id);
     }
 
-    // Puis je reviens sur mes pas en passant le message en URL
-    // pour vérifier que tout a bien fonctionner
     wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
     exit();
-});
-
-add_action( 'admin_post_upload_demo', function () {
-    if ( wp_verify_nonce( $_POST['my_image_upload_nonce'], 'my_image_upload' ) ) {
-        $attachment_id = media_handle_upload( 'my_image_upload', 0 );
-
-        if ( is_wp_error( $attachment_id ) ) {
-            wp_redirect( "/".wp_strip_all_tags( $_POST['post_title']));
-        } else {
-            wp_redirect( "/".wp_strip_all_tags( '/'));
-        }
-    } else {
-        wp_redirect( "/".wp_strip_all_tags( '/les-biens-a-louer/'));
-    }
 });
