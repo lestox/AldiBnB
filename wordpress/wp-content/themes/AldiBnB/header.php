@@ -19,13 +19,15 @@
             'menu_class' => "navbar-nav me-auto mb-2 mb-lg-0"
         ]); ?>
 
+
             <?php
             if ( is_user_logged_in() ) { ?>
                 <button class="button-log disconnect" type="button" onclick="window.location.href = '<?php echo wp_logout_url(get_permalink()); ?>';">Déconnexion</button>
                 <?php }
             else { ?>
-                <button class="button-log connect" type="button" onclick="window.location.href = '<?php echo wp_login_url(get_permalink()); ?>';">Connexion</button>
+                <button class="button-log connect" type="button" onclick="window.location.href = '/login';">Connexion</button>
             <?php } ?>
     </div>
     <?php get_search_form(); ?>
 </header>
+
