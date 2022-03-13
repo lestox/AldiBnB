@@ -3,52 +3,57 @@
     height: 100%;
 }
 
-#explications{
+#presentation{
     height: 70vh;
     display: flex;
     flex-direction: row-reverse;
     margin-top: 9rem;
 }
 
-#explications>.image_type{
+#presentation>.image_type{
     width: 50%;
     overflow: hidden;
     max-height: 100%;
 }
 
-#explications>.image_type>img{
+#presentation>.image_type>img{
     height: 100%;
     width: auto;
     max-width: unset;
 }
 
-#explications>.text{
+#presentation>.text{
     display: flex;
     width: 50%;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-#explications>.text>div, #explications>.text>h2{
+#presentation>.text>div, #presentation>.text>h2{
     margin: 5%;
 }
 
-#explications>.text>h2{
+#presentation>.text>h2{
     font-size: 1.3em;
 }
 
-#explications>.text>div{
+#presentation>.text>div{
     display: flex;
     align-items: center;
 }
 
-#explications>.text>div>p{
+#presentation>.text>div>p{
     width: 65%;
 }
 
-#explications>.text>div>p{
+#presentation>.text>div>p{
     margin: auto;
 }
+#presentation>.text>div>p>em {
+    color: #6d9b95;
+    font-size: 0.8em;
+}
+
 i{
     color: var(--primary-color);
 }
