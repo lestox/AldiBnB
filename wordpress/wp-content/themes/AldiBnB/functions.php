@@ -93,31 +93,32 @@ add_action('admin_post_aldibnb_form', function () {
     wp_insert_post( $my_post );
 
     // Traitement de l'image
-    $target_dir = "/assets/images/";
-    $file = $_FILES["image_upload"]["name"];
-    $path = pathinfo($file);
-    $filename = $path['filename'];
-    $ext = $path['extension'];
-    $temp_name = $_FILES["image_upload"]["tmp_name"];
-    $path_filename_ext = $target_dir.$filename.".".$ext;
 
-    if (file_exists($path_filename_ext)) {
-        echo "Sorry, file already exists.";
-    }else{
-        move_uploaded_file($temp_name,$path_filename_ext);
-        echo "Congratulations! File Uploaded Successfully.";
-    }
-
-    //$attachment_id = media_handle_upload('image_upload', $_POST['post_id']);
+    $attachment_id = media_handle_upload('image_upload', $_POST['post_id']);
 
     // Ajout de l'image
-    //if (is_wp_error($attachment_id)) {
-       // wp_redirect($_POST['_wp_http_referer'] . '?status=error');
-    //} else {
-      //  set_post_thumbnail($_POST['post_id'], $attachment_id);
-    //}
-
-    //wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
-    //exit();
+    if (is_wp_error($attachment_id)) {
+        wp_redirect($_POST['_wp_http_referer'] . '?status=error');
+    }
+    wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
+    exit();
 });
+
+add_action('add_meta_boxes', 'aldibnb_add_metabox');
+function aldibnb_add_metabox() {
+    add_meta_box(
+        'image',
+        'Image',
+        'aldibnb_metabox_render',
+        'post',
+        'side'
+    );
+}
+
+function aldibnb_metabox_render() {
+
+    ?>
+
+
+}
 
