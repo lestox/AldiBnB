@@ -13,28 +13,12 @@ function update_anyone_can_register() {
     update_option('users_can_register', true);
 }
 
+// Restriction de l'admin aux admins
 add_action( 'admin_init', 'restrict_admin', 1 );
 function restrict_admin()
 {
     if ( ! current_user_can( 'manage_options' ) && '/wp-admin/admin-ajax.php' != $_SERVER['PHP_SELF'] ) {
         wp_redirect( site_url() );
-    }
-}
-
-add_action('wp_logout','auto_redirect_after_logout');
-function auto_redirect_after_logout(){
-    wp_safe_redirect( home_url() );
-    exit;
-}
-
-add_action('wp', 'add_login_check');
-function add_login_check()
-{
-    if (is_user_logged_in()) {
-        if (is_page(28)){
-            wp_redirect('/');
-            exit;
-        }
     }
 }
 
@@ -120,35 +104,7 @@ add_action('admin_post_aldibnb_form', function () {
 add_action( 'wp_enqueue_scripts', 'aldibnb_styles' );
 
 
-// Redirection page WP login vers custom
-function redirect_login() {
-    $login_page  = home_url('/login');
-    $page_viewed = basename($_SERVER['REQUEST_URI']);
 
-    if($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' && (get_page_by_title('login'))) {
-        wp_redirect($login_page);
-       exit;
-    }
-}
-add_action('init','redirect_login');
-
-// Gestion des erreurs de connexion
-function custom_login_failed() {
-    $login_page  = home_url('/login/');
-    wp_redirect($login_page . '?login=failed');
-    exit;
-}
-add_action('wp_login_failed', 'custom_login_failed');
-
-// Si un des deux champ est vide
-function verify_user_pass($user, $username, $password) {
-    $login_page  = home_url('/login/');
-    if($username == "" || $password == "") {
-        wp_redirect($login_page . "?login=empty");
-        exit;
-    }
-}
-add_filter('authenticate', 'verify_user_pass', 1, 3);
 
 
 
