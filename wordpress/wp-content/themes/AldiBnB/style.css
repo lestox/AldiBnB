@@ -98,6 +98,12 @@ body{
 
 #logo{
     font-size: 35px;
+    animation: color-change 5s;
+}
+@keyframes color-change {
+    0% { color: var(--primary-color); }
+    50% { color: #41b5ce; }
+    100% { color: #cbe4ea; }
 }
 
 header{
@@ -197,34 +203,17 @@ footer{
     padding: 1em 0;
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    position:absolute;
+    margin-top: 10vh;
+    position: absolute;
+}
+
+footer>.footer_container footer>.footer_container>#logo{
+    width: 65%;
+    position:relative;
     bottom:0;
 }
-
-footer>.footer_container{
-    display: flex;
-    justify-content: space-around;
-    width: 65%;
-    margin: auto;
-}
-
-footer>.footer_container>div{
-    border-right: 1px solid #F5F6F4;
-    padding-right: 10%;
-}
-
-footer>.footer_container>div:nth-child(odd){
-    padding-top: 10px;
-}
-
-footer>.footer_container>div:last-child{
-    display: flex;
-    justify-content: space-around;
-    border-right: unset;
-}
-
-footer>.footer_container>div:last-child>div{
-    margin: 0.5em;
+footer>.footer_container>#logo{
+    margin-left: 49%;
 }
 
 .loginForm, .registerForm {
