@@ -79,14 +79,15 @@ function mytheme_enqueue_style() {
 }
 add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_style' );
 
+
 // Redirection page WP login vers custom
 function redirect_login() {
-    $login_page  = home_url('/login/');
+    $login_page  = home_url('/login');
     $page_viewed = basename($_SERVER['REQUEST_URI']);
 
-    if($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+    if($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' && (get_page_by_title('login'))) {
         wp_redirect($login_page);
-        exit;
+       exit;
     }
 }
 add_action('init','redirect_login');
