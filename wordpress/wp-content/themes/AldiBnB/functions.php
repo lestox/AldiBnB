@@ -3,7 +3,7 @@ add_action('after_setup_theme', 'aldibnbSetupTheme');
 function aldibnbSetupTheme()
 {
     add_theme_support('title-tag');
-    //add_theme_support('post-thumbnails');
+    add_theme_support('post-thumbnails');
     add_theme_support('menus');
     register_nav_menu('header', 'Menu du header');
 }
@@ -73,4 +73,38 @@ function aldibnb_styles(){
     wp_enqueue_style( 'font-awesome-free', 'https://use.fontawesome.com/releases/v6.0.0/css/all.css' );
 }
 
+add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_style' );
+
+
+add_action('admin_post_aldibnb_form', function () {
+    if (!wp_verify_nonce($_POST['post_nonce_field'], 'post_nonce')) {
+        die('Nonce invalide');
+    }
+
+    // Create post object
+    $my_post = array(
+        'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
+        'post_content'  => $_POST['post_content'],
+        'post_status'   => 'publish',
+        'post_author'   => get_current_user_id()
+    );
+
+    // Insert the post into the database
+    wp_insert_post( $my_post );
+
+    // Traitement de l'image
+    $attachment_id = media_handle_upload('image_upload', $_POST['post_id']);
+
+    // Ajout de l'image
+    if (is_wp_error($attachment_id)) {
+        wp_redirect($_POST['_wp_http_referer'] . '?status=error');
+    } else {
+        set_post_thumbnail($_POST['post_id'], $attachment_id);
+    }
+
+    wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
+    exit();
+});
+
 add_action( 'wp_enqueue_scripts', 'aldibnb_styles' );
+

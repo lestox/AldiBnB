@@ -9,17 +9,8 @@
             <div>
                 <img src="<?php the_post_thumbnail_url(); ?>" alt="...">
                 <div>
-
-                    <?php if (get_post_meta(get_the_ID(), 'wpheticSponso', true)) : ?>
-                        <div>
-                            Contenu Soponso
-                        </div>
-                    <?php endif; ?>
-
                     <h5><?php the_title(); ?></h5>
-
                     <p><small> Style: <?= the_terms(get_the_ID(), 'style'); ?></small></p>
-
                     <p><?php the_content(); ?></p>
                     <a href="<?php the_permalink(); ?>">Lire plus</a>
                 </div>
