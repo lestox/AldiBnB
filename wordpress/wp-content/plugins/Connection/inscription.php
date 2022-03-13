@@ -10,25 +10,19 @@ ob_start();
 function registrationForm() {
     // On retourne le formulaire seulement si l'utilisateur n'est pas déjà connecté
     if(!is_user_logged_in()) {
-        $output = registrationFormFront();
-        return $output;
+        return registrationFormFront();
     }
 }
 add_shortcode('register_form', 'registrationForm');
 
 // registration form fields
-function registrationFormFront(){
-
-     ?>
-
+function registrationFormFront(){ ?>
     <h3>Formulaire d'inscription</h3>
 
-    <?php
-
-    // show any error messages after form submission
+    <?php // show any error messages after form submission
     errorMessages(); ?>
 
-    <form action="" method="POST">
+    <form action="" class="registerForm" method="POST">
         <fieldset>
             <p>
                 <label for="userLogin">Nom d'utilisateur</label>
@@ -64,27 +58,27 @@ function addUser() {
 
         if(username_exists($user_login)) {
             // Si le nom d'utilisateur existe déjà
-            errors()->add('username_unavailable', __('Username already taken'));
+            errors()->add('username_unavailable', __("Nom d'utilisateur indisponible"));
         }
         if(!validate_username($user_login)) {
             // Si le nom d'utilisateur est invalide
-            errors()->add('username_invalid', __('Invalid username'));
+            errors()->add('username_invalid', __("Nom d'utilisateur invalide"));
         }
         if($user_login == '') {
             // Si le nom d'utilisateur est vide
-            errors()->add('username_empty', __('Please enter a username'));
+            errors()->add('username_empty', __("Veuillez rentrer un nom d'utilisateur"));
         }
         if(!is_email($user_email)) {
             // Si l'email est invalide
-            errors()->add('email_invalid', __('Invalid email'));
+            errors()->add('email_invalid', __('Email invalide'));
         }
         if(email_exists($user_email)) {
             // Si l'email existe déjà
-            errors()->add('email_used', __('Email already registered'));
+            errors()->add('email_used', __('Email déjà utilisé'));
         }
         if($user_pass == '') {
             // Si le mdp est vide
-            errors()->add('password_empty', __('Please enter a password'));
+            errors()->add('password_empty', __('Veuillez rentrer un mot de passe'));
         }
 
 
@@ -124,7 +118,7 @@ function errorMessages() {
         // Loop error codes and display errors
         foreach($codes as $code){
             $message = errors()->get_error_message($code);
-            echo '<span class="error"><strong>' . __('Error') . '</strong>: ' . $message . '</span><br/>';
+            echo '<span class="error"><strong>' . __('Erreur') . '</strong>: ' . $message . '</span><br/>';
         }
         echo '</div>';
     }

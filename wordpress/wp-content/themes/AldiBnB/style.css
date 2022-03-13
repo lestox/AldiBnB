@@ -214,3 +214,12 @@ footer>.footer_container>div:last-child{
 footer>.footer_container>div:last-child>div{
     margin: 0.5em;
 }
+
+.loginForm, .registerForm {
+    margin-top: 200px;
+}
+
+.errors {
+    background-color: red;
+    margin-top: 150px;
+}

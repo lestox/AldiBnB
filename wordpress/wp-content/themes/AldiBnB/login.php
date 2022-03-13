@@ -22,7 +22,7 @@ if (isset($_GET['login']) && $_GET['login'] == 'empty'){
     echo '<strong>' . "Un des champ est vide. Veuillez réessayer" . '</strong>';
 } ?>
 
-    <form action="<?= home_url('wp-login.php'); ?>" method="post">
+    <form class="loginForm" action="<?= home_url('wp-login.php'); ?>" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1">Email ou Nom d'utilisateur</label>
             <input name="log" type="text" class="form-control">
