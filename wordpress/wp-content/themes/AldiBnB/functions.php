@@ -66,12 +66,13 @@ function aldibnbPaginate()
     return ob_get_clean();
 }
 
-add_action( 'wp_enqueue_scripts', 'safely_add_stylesheet' );
 
-// load css into the website's front-end
-function mytheme_enqueue_style() {
-    wp_enqueue_style( 'style', get_stylesheet_uri());
+function aldibnb_styles(){
+    wp_enqueue_style('aldibnb-style',get_stylesheet_uri());
+    wp_enqueue_style('landing', get_template_directory_uri() . '/assets/styles/front-page.css', array(), 'all');
+    wp_enqueue_style( 'font-awesome-free', 'https://use.fontawesome.com/releases/v6.0.0/css/all.css' );
 }
+
 add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_style' );
 
 
@@ -104,3 +105,6 @@ add_action('admin_post_aldibnb_form', function () {
     wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
     exit();
 });
+
+add_action( 'wp_enqueue_scripts', 'aldibnb_styles' );
+

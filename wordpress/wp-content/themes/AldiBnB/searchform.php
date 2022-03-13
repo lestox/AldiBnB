@@ -3,8 +3,17 @@
  * Template Name: Search Page
  */
 ?>
-<form class="d-flex" action="<?php esc_url(home_url('/')); ?>">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="s"
-           value="<?= get_search_query(); ?>">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
+<section id="search_field">
+    <div>
+        <input type="text" placeholder="Destination" name="destination" id="destination" />
+    </div>
+    <div>
+        <input type="date" placeholder="Date" name="date" id="date" />
+    </div>
+    <div>
+        <input type="number" placeholder="Nombre de personnes" name="nb_personnes" id="nb_personnes" />
+    </div>
+    <div>
+        <input type="submit" value="Rechercher" id="search_button" />
+    </div>
+</section>
