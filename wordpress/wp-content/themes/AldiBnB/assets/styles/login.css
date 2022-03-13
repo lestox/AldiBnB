@@ -1,7 +1,7 @@
 h2{
     margin: 0 0 8vh 12vh;
 }
-form>div>input, #submit-button{
+.loginForm>div>input, #submit-button{
     cursor: pointer;
     display: flex;
     justify-content: space-around;
