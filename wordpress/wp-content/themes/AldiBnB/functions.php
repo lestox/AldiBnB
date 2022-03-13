@@ -103,7 +103,14 @@ add_action('admin_post_aldibnb_form', function () {
 
 add_action( 'wp_enqueue_scripts', 'aldibnb_styles' );
 
-
+// Modif droits contributeur
+function author_remove_rights() {
+    // Retrieve the  Author role.
+    $role = get_role(  'author' );
+    // Let's add a set  of new capabilities we want Authors to have.
+    $role->remove_cap('publish_posts');
+}
+add_action( 'admin_init', 'author_remove_rights');
 
 
 
