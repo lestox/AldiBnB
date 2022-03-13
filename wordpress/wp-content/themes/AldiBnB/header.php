@@ -19,7 +19,8 @@
         <?php if ( is_user_logged_in() ) { ?>
         <button type="button" onclick="window.location.href = '<?php echo wp_logout_url(get_permalink()); ?>';">Déconnexion
             <?php } else { ?>
-            <button type="button" onclick="window.location.href = '<?php echo wp_login_url(get_permalink()); ?>';">Connexion
+            <button type="button" onclick="window.location.href = '/login';">Connexion
                 <?php } ?>
             </button>
-    <?php get_search_form(); ?>
+
+
