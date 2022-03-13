@@ -25,6 +25,9 @@
     <label for="capacity">Nombre de voyageurs</label><br/>
     <input type="number" name="capacity" id="capacity"/><br/>
 
+    <label for="room">Nombre de chambres</label><br/>
+    <input type="number" name="room" id="room"/><br/>
+
     <label for="image_upload">Choisis une image</label><br/>
     <input type="file" name="image_upload" id="image_upload" multiple="false"/><br/>
 
