@@ -17,7 +17,7 @@ add_shortcode('register_form', 'registrationForm');
 
 // registration form fields
 function registrationFormFront(){ ?>
-    <h3>Formulaire d'inscription</h3>
+    <h2>Formulaire d'inscription</h2>
 
     <?php // show any error messages after form submission
     errorMessages(); ?>
@@ -41,7 +41,7 @@ function registrationFormFront(){ ?>
             <p>
                 <input type="hidden" name="registerForm" value="registerForm">
                 <?php echo wp_nonce_field('random_action', 'registerNonce'); ?>
-                <input type="submit" value="Inscription"/>
+                <input id="submit-button" type="submit" value="Inscription"/>
             </p>
         </fieldset>
     </form>
