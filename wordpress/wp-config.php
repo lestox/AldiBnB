@@ -67,6 +67,11 @@ define( 'DB_COLLATE', getenv_docker('WORDPRESS_DB_COLLATE', '') );
 /** To delete, then the site is getting online */
 define('FS_METHOD', 'direct');
 
+
+/** Custom folder location for image uploads. */
+define( 'UPLOADS', 'wp-content/themes/AldiBnB/assets'.'/images' );
+
+
 /**#@+
  * Authentication unique keys and salts.
  *
