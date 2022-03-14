@@ -14,12 +14,12 @@ if(is_user_logged_in()){
 
 <?php // Si l'authentification échoue
 if (isset($_GET['login']) && $_GET['login'] == 'failed'){
-    echo '<strong>' . "Mot de passe et/ou nom d'utilisateur invalide. Réessayez" . '</strong>';
+    echo '<div class="errorlogin">' . "Mot de passe et/ou nom d'utilisateur invalide. Réessayez" . '</div>';
 } ?>
 
 <?php // Si un champ est vide
 if (isset($_GET['login']) && $_GET['login'] == 'empty'){
-    echo '<strong>' . "Un des champ est vide. Veuillez réessayer" . '</strong>';
+    echo '<div class="errorlogin">' . "Un des champ est vide. Veuillez réessayer" . '</div>';
 } ?>
 
     <form class="loginForm" action="<?= home_url('wp-login.php'); ?>" method="post">
@@ -32,10 +32,10 @@ if (isset($_GET['login']) && $_GET['login'] == 'empty'){
             <input name="pwd" type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
         </div>
         <div class="form-check">
-            <input name="rememberme" type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
+            <input name="rememberme" type="checkbox" class="form-check-input" id="exampleCheck1">
         </div>
-        <button name="wp-submit" type="submit" class="btn btn-primary">Connection</button>
+        <button id="submit-button" name="wp-submit" type="submit" class="btn btn-primary">Connection</button>
         <input type="hidden" name="redirect_to" value="/"/>
     </form>
 
