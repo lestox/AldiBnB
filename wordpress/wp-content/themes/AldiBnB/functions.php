@@ -75,6 +75,8 @@ add_action( 'wp_enqueue_scripts', 'aldibnb_styles' );
 function aldibnb_styles(){
     wp_enqueue_style('aldibnb-style',get_stylesheet_uri());
     wp_enqueue_style('landing', get_template_directory_uri() . '/assets/styles/front-page.css', array(), 'all');
+    wp_enqueue_style('register', get_template_directory_uri() . '/assets/styles/register.css', array(), 'all');
+    wp_enqueue_style('log', get_template_directory_uri() . '/assets/styles/login.css', array(), 'all');
     wp_enqueue_style( 'font-awesome-free', 'https://use.fontawesome.com/releases/v6.0.0/css/all.css' );
 }
 
