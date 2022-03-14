@@ -8,6 +8,8 @@ function aldibnbSetupTheme()
     register_nav_menu('header', 'Menu du header');
 }
 
+add_filter( 'show_admin_bar' , '__return_false' );
+
 add_action('init', 'update_anyone_can_register');
 function update_anyone_can_register() {
     update_option('users_can_register', true);
@@ -53,6 +55,14 @@ function aldibnbPaginate()
     echo '</ul></nav>';
 
     return ob_get_clean();
+}
+
+// Gestion des erreurs de connexion
+add_action('wp_login_failed', 'custom_login_failed');
+function custom_login_failed() {
+    $login_page  = home_url('/login/');
+    wp_redirect($login_page . '?login=failed');
+    exit;
 }
 
 add_action( 'wp_enqueue_scripts', 'aldibnb_styles' );
@@ -129,5 +139,6 @@ add_role(
         'delete_published_pages' => true
     )
 );
+
 
 

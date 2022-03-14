@@ -238,3 +238,31 @@ b{
         font-size: 4vw;
     }
 }
+
+.single_post {
+    margin-top: 200px;
+    margin-right: 10%;
+    margin-left: 10%
+}
+
+.single_post > h2 {
+    font-size: 1.5em;
+    margin: 0 0 2vh 0vh;
+}
+
+.single_post > .infos {
+    margin: 1vh 0vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.single_post > .content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.errorlogin {
+    color: red;
+    margin-top: 120px;
+}
+

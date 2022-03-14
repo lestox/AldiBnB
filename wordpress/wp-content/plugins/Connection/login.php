@@ -25,6 +25,18 @@ function add_login_check()
     }
 }
 
+
+
+// Si un des deux champ est vide
+add_filter('authenticate', 'verify_user_pass', 1, 3);
+function verify_user_pass($user, $username, $password) {
+    $login_page  = home_url('/login/');
+    if($username == "" || $password == "") {
+        wp_redirect($login_page . "?login=empty");
+        exit;
+    }
+}
+
 // Redirection page login WP de base vers notre page custom
 add_action('init','redirect_login');
 function redirect_login() {
@@ -33,24 +45,6 @@ function redirect_login() {
 
     if($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' && (get_page_by_title('login'))) {
         wp_redirect($login_page);
-        exit;
-    }
-}
-
-// Gestion des erreurs de connexion
-add_action('wp_login_failed', 'custom_login_failed');
-function custom_login_failed() {
-    $login_page  = home_url('/login/');
-    wp_redirect($login_page . '?login=failed');
-    exit;
-}
-
-// Si un des deux champ est vide
-add_filter('authenticate', 'verify_user_pass', 1, 3);
-function verify_user_pass($user, $username, $password) {
-    $login_page  = home_url('/login/');
-    if($username == "" || $password == "") {
-        wp_redirect($login_page . "?login=empty");
         exit;
     }
 }
