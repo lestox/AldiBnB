@@ -95,7 +95,6 @@ add_action('admin_post_aldibnb_form', function () {
         wp_redirect($_POST['_wp_http_referer'] . '?status=error');
     }
 
-
     // Create post object
     $my_post = array(
         'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
