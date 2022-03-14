@@ -34,6 +34,6 @@ $picture = get_post_meta(get_the_ID(), 'image', true);
 
 
 
-<?php get_footer(); ?>
+
 
 
