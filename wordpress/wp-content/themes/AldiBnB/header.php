@@ -19,9 +19,11 @@
             'menu_class' => "navbar-nav me-auto mb-2 mb-lg-0"
         ]);
         */?>
+        <span><a id="annonces" href="/toutes-les-annonces"><b>Nos annonces</b></a></span>
         <?php
             if ( is_user_logged_in() ) { ?>
-                <button class="button-log disconnect" type="button" onclick="window.location.href = '<?php echo wp_logout_url(get_permalink()); ?>';">Déconnexion</button>
+                <span><a id="post-annonce" href="/poster-une-annonce"><b>Poster votre annonce</b></a></span>
+                <button class="button-log disconnect" type="button" onclick="window.location.href = '<?php echo wp_logout_url(get_permalink()); ?>';">Deconnexion</button>
                 <?php }
             else { ?>
                 <div id="buttons">

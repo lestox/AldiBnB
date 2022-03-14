@@ -8,16 +8,20 @@
 <?php get_header(); ?>
 
 <?php if (have_posts()) : ?>
-    <div>
+    <div id="all_posts">
         <?php while (have_posts()) : ?>
 
             <?php the_post();
-            $picture = get_post_meta(get_the_ID(), 'image', true);?>
-
-            <div>
-                <img src="<?php echo($picture); ?>" alt="...">
+            $price = get_post_meta(get_the_ID(), 'price', true);
+            $picture = get_post_meta(get_the_ID(), 'image', true);
+            ?>
+            <div id="unique_post">
+                <img src="<?php echo $picture?>" alt="pics">
                 <div>
-                    <h5><?php the_title(); ?></h5>
+                    <div id="head-title">
+                        <h5><?php the_title(); ?></h5>
+                        <span><?php echo $price?>€</span>
+                    </div>
                     <p><?php the_content(); ?></p>
                     <a href="<?php the_permalink(); ?>">Lire plus</a>
                 </div>
