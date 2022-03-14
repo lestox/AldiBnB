@@ -1,4 +1,4 @@
-<?php /*get_header(); */?>
+<?php get_header(); ?>
 
 <?php
 $price = get_post_meta(get_the_ID(), 'price', true);
