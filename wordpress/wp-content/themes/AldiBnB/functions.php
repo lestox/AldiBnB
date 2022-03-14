@@ -126,7 +126,7 @@ add_role(
         'edit_pages'  => true,
         'edit_published_pages'  =>  true,
         'publish_pages'  => true,
-        'delete_published_pages' => true,
+        'delete_published_pages' => true
     )
 );
 
