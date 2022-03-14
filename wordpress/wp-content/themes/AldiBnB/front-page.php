@@ -1,3 +1,10 @@
+<?php
+/**
+ * Template Name: front page
+ * Template Post Type: page
+ */
+?>
+
 <?php get_header(); ?>
 
     <section id="presentation">
