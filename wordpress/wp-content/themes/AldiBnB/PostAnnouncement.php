@@ -8,12 +8,12 @@
 <?php get_header(); ?>
     <section id="presentation">
         <div class="text">
+            <h1>Poster une annonce</h1>
             <form action="<?= admin_url('admin-post.php'); ?>" method="post" enctype="multipart/form-data">
                 <!-- Titre de l'article -->
                 <label for="post_title">Titre de mon article</label><br/>
                 <input type="text" name="post_title" id="post_title"/><br/>
-
-
+              
                 <label for="post_content">La description</label><br/>
                 <textarea name="post_content" id="post_content"></textarea><br/>
 
@@ -40,7 +40,6 @@
                 <?php wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
 
                 <input type="submit" name="submit_post" id="submit_post" value="Publier mon article" />
-
             </form>
         </div>
     </section>
