@@ -55,7 +55,6 @@ function addUser() {
         $user_email	= $_POST["userEmail"];
         $user_pass	= $_POST["password"];
 
-
         if(username_exists($user_login)) {
             // Si le nom d'utilisateur existe déjà
             errors()->add('username_unavailable', __("Nom d'utilisateur indisponible"));
@@ -81,7 +80,6 @@ function addUser() {
             errors()->add('password_empty', __('Veuillez rentrer un mot de passe'));
         }
 
-
         $errors = errors()->get_error_messages();
 
         // Si pas d'erreurs, création de l'utilisateur
@@ -91,7 +89,7 @@ function addUser() {
                     'user_pass'	 		=> $user_pass,
                     'user_email'		=> $user_email,
                     'user_registered'	=> date('Y-m-d H:i:s'),
-                    'role'				=> 'subscriber'
+                    'role'				=> 'author'
                 )
             );
 
