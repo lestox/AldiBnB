@@ -133,15 +133,33 @@ header>div:first-child>a:first-child{
 header>div:first-child>a:last-child{
     text-align: center;
 }
+.navbar-nav>ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw;
+}
 
 .button-log{
+    cursor: pointer;
     display: flex;
     justify-content: space-around;
     background-color: var(--primary-color);
-    padding: 0.5em;
+    padding: 0.5em 4em;
     border-radius: 50px;
     width: 6rem;
     color: var(--secondary-color);
+}
+.register{
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+#buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
 }
 #flex-top-header{
     display: flex;
@@ -205,6 +223,7 @@ footer{
     color: var(--secondary-color);
     margin-top: 10vh;
     position: absolute;
+    bottom: 0;
 }
 
 footer>.footer_container footer>.footer_container>#logo{
@@ -216,12 +235,8 @@ footer>.footer_container>#logo{
     margin-left: 49%;
 }
 
-.loginForm, .registerForm {
-    margin-top: 200px;
-}
-
 .errors {
-    background-color: red;
+    background-color: var(--alerting-color);
     margin-top: 150px;
 }
 b{
@@ -234,8 +249,8 @@ b{
     }
 
     .button-log {
-        width: 23vw;
-        font-size: 4vw;
+        width: 3rem;
+        font-size: 0.8em;
     }
 }
 

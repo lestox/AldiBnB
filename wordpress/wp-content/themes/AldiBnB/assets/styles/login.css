@@ -1,0 +1,45 @@
+h2{
+    margin: 0 0 8vh 12vh;
+}
+.loginForm>div>input, #submit-button{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5em 4em;
+    border-radius: 50px;
+    width: 6rem;
+    color: var(--secondary-color);
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+}
+.loginForm{
+    margin: 25% auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+.form-check{
+    display: inline-flex;
+}
+.form-check-input{
+    width: 15px;
+    border-color: var(--primary-color);
+}
+#submit-button{
+    background-color: var(--primary-color);
+    border-color: transparent;
+}
+#submit-button:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+@media (max-width: 800px){
+    fieldset{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
