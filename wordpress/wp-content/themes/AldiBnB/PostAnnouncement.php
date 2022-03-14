@@ -13,7 +13,7 @@
                 <!-- Titre de l'article -->
                 <label for="post_title">Titre de mon article</label><br/>
                 <input type="text" name="post_title" id="post_title"/><br/>
-
+              
                 <label for="post_content">La description</label><br/>
                 <textarea name="post_content" id="post_content"></textarea><br/>
 
@@ -43,5 +43,4 @@
             </form>
         </div>
     </section>
-
 <?php get_footer(); ?>
