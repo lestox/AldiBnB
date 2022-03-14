@@ -13,11 +13,11 @@ function update_anyone_can_register() {
     update_option('users_can_register', true);
 }
 
-// Restriction de l'admin aux admins
+// Restriction de l'admin aux admins et moderator
 add_action( 'admin_init', 'restrict_admin', 1 );
 function restrict_admin()
 {
-    if ( ! current_user_can( 'manage_options' ) && '/wp-admin/admin-ajax.php' != $_SERVER['PHP_SELF'] ) {
+    if ( ! current_user_can( 'delete_published_pages' ) && '/wp-admin/admin-ajax.php' != $_SERVER['PHP_SELF'] ) {
         wp_redirect( site_url() );
     }
 }
@@ -84,7 +84,7 @@ add_action('admin_post_aldibnb_form', function () {
     $my_post = array(
         'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
         'post_content'  => $_POST['post_content'],
-        'post_status'   => 'publish',
+        'post_status'   => 'draft',
         'post_author'   => get_current_user_id(),
         'meta_input'    => array(
             'price' => $_POST['price'],
@@ -112,6 +112,22 @@ function author_remove_rights() {
 }
 add_action( 'admin_init', 'author_remove_rights');
 
-
+// Création d'un rôle modérateur
+add_role(
+    'Moderator', //  System name of the role.
+    __( 'Moderator'  ), // Display name of the role.
+    array(
+        'read'  => true,
+        'delete_posts'  => true,
+        'delete_published_posts' => true,
+        'edit_posts'   => true,
+        'publish_posts' => true,
+        'upload_files'  => false,
+        'edit_pages'  => true,
+        'edit_published_pages'  =>  true,
+        'publish_pages'  => true,
+        'delete_published_pages' => true,
+    )
+);
 
 
