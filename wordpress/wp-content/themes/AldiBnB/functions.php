@@ -61,6 +61,7 @@ function aldibnb_styles(){
     wp_enqueue_style('landing', get_template_directory_uri() . '/assets/styles/front-page.css', array(), 'all');
     wp_enqueue_style('register', get_template_directory_uri() . '/assets/styles/register.css', array(), 'all');
     wp_enqueue_style('log', get_template_directory_uri() . '/assets/styles/login.css', array(), 'all');
+    wp_enqueue_style('all-annonces', get_template_directory_uri() . '/assets/styles/toutes-les-annonces.css', array(), 'all');
     wp_enqueue_style( 'font-awesome-free', 'https://use.fontawesome.com/releases/v6.0.0/css/all.css' );
 }
 
@@ -97,8 +98,7 @@ add_action('admin_post_aldibnb_form', function () {
 
     // Insert the post into the database
     wp_insert_post( $my_post );
-
-    wp_redirect( "/".wp_strip_all_tags( $_POST['post_title'] ));
+    wp_redirect( "/moderation");
     exit();
 });
 

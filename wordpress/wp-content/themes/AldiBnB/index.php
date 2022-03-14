@@ -5,7 +5,7 @@
  */
 ?>
 
-<?php //get_header(); ?>
+<?php get_header(); ?>
 
 <?php if (have_posts()) : ?>
     <div>
@@ -30,4 +30,4 @@
 
 <?php endif; ?>
 
-<?php //get_footer(); ?>
+<?php get_footer(); ?>

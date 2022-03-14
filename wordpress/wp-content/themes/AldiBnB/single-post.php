@@ -5,10 +5,7 @@ $price = get_post_meta(get_the_ID(), 'price', true);
 $city = get_post_meta(get_the_ID(), 'city', true);
 $capacity = get_post_meta(get_the_ID(), 'capacity', true);
 $room = get_post_meta(get_the_ID(), 'room', true);
-
 $picture = get_post_meta(get_the_ID(), 'image', true);
-//$picture = "." . mb_strcut($picture, 47);
-
 
 ?>
 
@@ -16,7 +13,7 @@ $picture = get_post_meta(get_the_ID(), 'image', true);
     <?php while (have_posts()) : the_post(); ?>
 
         <div>
-            <img src="<?php $picture ?>" alt="Image">
+            <img src="<?php echo $picture; ?>" alt="Image">
             <div>
                 <h5><?php the_title(); ?></h5>
                 <p><?php the_content()?></p>
@@ -24,8 +21,6 @@ $picture = get_post_meta(get_the_ID(), 'image', true);
                 <p>Ville : <?php echo($city) ?></p>
                 <p>Nombre de personnes : <?php echo($capacity) ?></p>
                 <p>Nombre de chambres : <?php echo($room) ?></p>
-                <?php
-                var_dump($picture); ?>
                 <p><small>Ecrit le : <?php the_date(); ?></small></p>
             </div>
         </div>
