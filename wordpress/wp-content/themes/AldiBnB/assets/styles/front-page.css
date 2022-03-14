@@ -1,0 +1,59 @@
+#container{
+    margin: auto;
+    height: 100%;
+}
+
+#presentation{
+    height: 70vh;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 9rem;
+}
+
+#presentation>.image_type{
+    width: 50%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+#presentation>.image_type>img{
+    height: 100%;
+    width: auto;
+    max-width: unset;
+}
+
+#presentation>.text{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#presentation>.text>div, #presentation>.text>h2{
+    margin: 5%;
+}
+
+#presentation>.text>h2{
+    font-size: 1.3em;
+}
+
+#presentation>.text>div{
+    display: flex;
+    align-items: center;
+}
+
+#presentation>.text>div>p{
+    width: 65%;
+}
+
+#presentation>.text>div>p{
+    margin: auto;
+}
+#presentation>.text>div>p>em {
+    color: #6d9b95;
+    font-size: 0.8em;
+}
+
+i{
+    color: var(--primary-color);
+}

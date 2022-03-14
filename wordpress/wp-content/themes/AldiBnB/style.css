@@ -4,3 +4,237 @@ Author: LidlBnB's Team
 Version: 1.0
 Description: The world best theme for apartment renting. Made with love by the LidlBnB Team.
 */
+/*          CSS Variables          */
+:root {
+    --bg-color: #000;
+    --primary-color: #00B5DB;
+    --secondary-color: #fff;
+    --alerting-color: #F03D14;
+    --font: 'Poppins', sans-serif;
+}
+
+/*          CSS Reset          */
+html,
+body {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+address,
+big,
+cite,
+code,
+em,
+font,
+img,
+small,
+strike,
+sub,
+sup,
+li,
+ol,
+ul,
+fieldset,
+form,
+label,
+legend,
+button,
+table,
+caption,
+tr,
+th,
+td {
+    border: none;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+}
+
+blockquote::before,
+blockquote::after {
+    content: "";
+}
+
+ol, ul, li{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #3A405A;
+}
+
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
+
+/* Font importations */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap');
+
+/* Basics */
+body{
+    font-family: var(--font);
+    color: var(--secondary-color);
+    position: relative;
+}
+
+#logo{
+    font-size: 35px;
+    animation: color-change 5s;
+}
+@keyframes color-change {
+    0% { color: var(--primary-color); }
+    50% { color: #41b5ce; }
+    100% { color: #cbe4ea; }
+}
+
+header{
+    position: fixed;
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    padding-top: 2vh;
+    width: 100vw;
+    top: 0;
+}
+
+header>div:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 95%;
+}
+
+header>div:first-child>a:first-child{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header>div:first-child>a:last-child{
+    text-align: center;
+}
+
+.button-log{
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--primary-color);
+    padding: 0.5em;
+    border-radius: 50px;
+    width: 6rem;
+    color: var(--secondary-color);
+}
+#flex-top-header{
+    display: flex;
+}
+#search_field{
+    position: sticky;
+    top: 5vh;
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    margin: 1em auto;
+    background-color: var(--primary-color);
+    padding: 1em;
+    border-radius: 50px;
+    box-shadow: 0 0 20px 1px var(--primary-color);
+    align-items: flex-end;
+}
+
+#search_field>div>input{
+    border: 0;
+    border-bottom: 2px solid var(--secondary-color);
+    outline: 0;
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-family: var(--font);
+}
+#search_field>div>input::placeholder{
+    color: var(--secondary-color);
+    opacity: 0.7;
+    font-size: 1.1em;
+}
+#search_field>div:last-child{
+    border-radius: 20px;
+    padding: 0 0.5em;
+}
+#search_button:hover{
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    color: var(--primary-color);
+    padding: 0 0.5em;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: auto;
+}
+
+.nav-menu>li{
+    padding: 1em;
+    font-weight: bold;
+}
+
+footer{
+    width: 100%;
+    height: 5vh;
+    padding: 1em 0;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-top: 10vh;
+    position: absolute;
+}
+
+footer>.footer_container footer>.footer_container>#logo{
+    width: 65%;
+    position:relative;
+    bottom:0;
+}
+footer>.footer_container>#logo{
+    margin-left: 49%;
+}
+
+.loginForm, .registerForm {
+    margin-top: 200px;
+}
+
+.errors {
+    background-color: red;
+    margin-top: 150px;
+}
+b{
+    color: var(--primary-color);
+}
+
+@media (max-width: 700px){
+    #search_field>div>input {
+        width: 15vw;
+    }
+
+    .button-log {
+        width: 23vw;
+        font-size: 4vw;
+    }
+}
