@@ -14,12 +14,12 @@ if(is_user_logged_in()){
 
 <?php // Si l'authentification échoue
 if (isset($_GET['login']) && $_GET['login'] == 'failed'){
-    echo '<strong>' . "Mot de passe et/ou nom d'utilisateur invalide. Réessayez" . '</strong>';
+    echo '<div class="errorlogin">' . "Mot de passe et/ou nom d'utilisateur invalide. Réessayez" . '</div>';
 } ?>
 
 <?php // Si un champ est vide
 if (isset($_GET['login']) && $_GET['login'] == 'empty'){
-    echo '<strong>' . "Un des champ est vide. Veuillez réessayer" . '</strong>';
+    echo '<div class="errorlogin">' . "Un des champ est vide. Veuillez réessayer" . '</div>';
 } ?>
 
     <form class="loginForm" action="<?= home_url('wp-login.php'); ?>" method="post">
